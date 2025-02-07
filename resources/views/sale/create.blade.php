@@ -181,6 +181,93 @@
                                 <label for="t-group">RWS Darkness (Optional)</label>
                                 <input id="t-text" type="number" min="0" name="rws_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->rws_degree??''}}" >
                             </div>
+                        </div><div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R1 Worker</label>
+                                <select id="r1_worker_id" name="r1_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r1_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R1 RT (Optional)</label>
+                                <select id="r1_remove_worker_id" name="r1_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r1_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R1 Product</label>
+                                <select id="r1_product_id" name="r1_product_id" placeholder="Select a product..." autocomplete="off">
+                                <option value="">Select a product...</option>
+                                @foreach($selected_product as $index=>$sel_prod)
+                                <option value="{{ $sel_prod->id ?? '' }}" 
+                                    @if((isset($sale) && $sel_prod->id == $sale->r1_product_id) || (!isset($sale->r1_product_id) && $index == 0)) 
+                                        selected 
+                                    @endif>
+                                    {{ $sel_prod->product_name ?? '' }}
+                                </option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R1 Darkness (Optional)</label>
+                                <input id="t-text" type="number" min="0" name="r1_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r1_degree??''}}" >
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R2 Worker</label>
+                                <select id="r2_worker_id" name="r2_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r2_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R2 RT (Optional)</label>
+                                <select id="r2_remove_worker_id" name="r2_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r2_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R2 Product</label>
+                                <select id="r2_product_id" name="r2_product_id" placeholder="Select a product..." autocomplete="off">
+                                <option value="">Select a product...</option>
+                                @foreach($selected_product as $index=>$sel_prod)
+                                <option value="{{ $sel_prod->id ?? '' }}" 
+                                    @if((isset($sale) && $sel_prod->id == $sale->r2_product_id) || (!isset($sale->r2_product_id) && $index == 0)) 
+                                        selected 
+                                    @endif>
+                                    {{ $sel_prod->product_name ?? '' }}
+                                </option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">R2 Darkness (Optional)</label>
+                                <input id="t-text" type="number" min="0" name="r2_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r2_degree??''}}" >
+                            </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
@@ -272,34 +359,34 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">R1 Worker</label>
-                                <select id="r1_worker_id" name="r1_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <label for="t-group">R3 Worker</label>
+                                <select id="r3_worker_id" name="r3_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
                                 @foreach($worker as $work)
-                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r1_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r3_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
                                 @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">R1 RT (Optional)</label>
-                                <select id="r1_remove_worker_id" name="r1_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <label for="t-group">R3 RT (Optional)</label>
+                                <select id="r3_remove_worker_id" name="r3_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
                                 @foreach($worker as $work)
-                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r1_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r3_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
                                 @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">R1 Product</label>
-                                <select id="r1_product_id" name="r1_product_id" placeholder="Select a product..." autocomplete="off">
+                                <label for="t-group">R3 Product</label>
+                                <select id="r3_product_id" name="r3_product_id" placeholder="Select a product..." autocomplete="off">
                                 <option value="">Select a product...</option>
                                 @foreach($selected_product as $index=>$sel_prod)
                                 <option value="{{ $sel_prod->id ?? '' }}" 
-                                    @if((isset($sale) && $sel_prod->id == $sale->r1_product_id) || (!isset($sale->r1_product_id) && $index == 0)) 
+                                    @if((isset($sale) && $sel_prod->id == $sale->r3_product_id) || (!isset($sale->r3_product_id) && $index == 0)) 
                                         selected 
                                     @endif>
                                     {{ $sel_prod->product_name ?? '' }}
@@ -310,52 +397,8 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">R1 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="r1_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r1_degree??''}}" >
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R2 Worker</label>
-                                <select id="r2_worker_id" name="r2_worker_id" placeholder="Select a worker..." autocomplete="off">
-                                <option value="">Select a worker...</option>
-                                @foreach($worker as $work)
-                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r2_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R2 RT (Optional)</label>
-                                <select id="r2_remove_worker_id" name="r2_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
-                                <option value="">Select a worker...</option>
-                                @foreach($worker as $work)
-                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r2_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R2 Product</label>
-                                <select id="r2_product_id" name="r2_product_id" placeholder="Select a product..." autocomplete="off">
-                                <option value="">Select a product...</option>
-                                @foreach($selected_product as $index=>$sel_prod)
-                                <option value="{{ $sel_prod->id ?? '' }}" 
-                                    @if((isset($sale) && $sel_prod->id == $sale->r2_product_id) || (!isset($sale->r2_product_id) && $index == 0)) 
-                                        selected 
-                                    @endif>
-                                    {{ $sel_prod->product_name ?? '' }}
-                                </option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R2 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="r2_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r2_degree??''}}" >
+                                <label for="t-group">R3 Darkness (Optional)</label>
+                                <input id="t-text" type="number" min="0" name="r3_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r3_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -400,50 +443,6 @@
                             <div class="form-group">
                                 <label for="t-group">L3 Darkness (Optional)</label>
                                 <input id="t-text" type="number" min="0" name="l3_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->l3_degree??''}}" >
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R3 Worker</label>
-                                <select id="r3_worker_id" name="r3_worker_id" placeholder="Select a worker..." autocomplete="off">
-                                <option value="">Select a worker...</option>
-                                @foreach($worker as $work)
-                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r3_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R3 RT (Optional)</label>
-                                <select id="r3_remove_worker_id" name="r3_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
-                                <option value="">Select a worker...</option>
-                                @foreach($worker as $work)
-                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->r3_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R3 Product</label>
-                                <select id="r3_product_id" name="r3_product_id" placeholder="Select a product..." autocomplete="off">
-                                <option value="">Select a product...</option>
-                                @foreach($selected_product as $index=>$sel_prod)
-                                <option value="{{ $sel_prod->id ?? '' }}" 
-                                    @if((isset($sale) && $sel_prod->id == $sale->r3_product_id) || (!isset($sale->r3_product_id) && $index == 0)) 
-                                        selected 
-                                    @endif>
-                                    {{ $sel_prod->product_name ?? '' }}
-                                </option>
-                                @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R3 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="r3_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r3_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">

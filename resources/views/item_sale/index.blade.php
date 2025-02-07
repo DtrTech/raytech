@@ -17,7 +17,7 @@
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">Settings</li>
-                                <li class="breadcrumb-item">Account Type</li>
+                                <li class="breadcrumb-item">Item Sales</li>
                             </ol>
                         </nav>
         
@@ -32,29 +32,56 @@
         <div class="col-lg-12">
             <div class="statbox widget box box-shadow">
                 <div class="widget-content widget-content-area">
-                    <a href="{{route('account_type.create')}}" class="btn btn-outline-primary mb-2 me-4 _effect--ripple waves-effect waves-light" style="margin:10px 10px;">Create</a>
+                    <div class="table-form d-flex justify-content-between align-items-center" style="margin:10px !important">
+                        <!-- Date and Search button grouped together -->
+                        <form method="GET">
+                            <div class="d-flex">
+                                <div class="form-group">
+                                    <input type="date" class="form-control form-control-sm" name="select_date" value="{{$today??''}}">
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Create button aligned to the right -->
+                        <div>
+                            <a href="{{ route('item_sale.create') }}" class="btn btn-outline-primary _effect--ripple waves-effect waves-light">
+                                Create
+                            </a>
+                        </div>
+                    </div>
+
+
                     <table id="style-3" class="table style-3 dt-table-hover non-hover">
                         <thead>
                             <tr>
                                 <th class="checkbox-column dt-no-sorting text-center">#</th>
-                                <th>Account Type</th>
-                                <th class="text-center">Status</th>
+                                <th>Date</th>
+                                <th>Car Plate</th>
+                                <th>Item</th>
+                                <th>Product</th>
+                                <th>Created At</th>
                                 <th class="text-center dt-no-sorting">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($account_type as $num => $row)
+                            @foreach($item_sale as $num => $row)
                             <tr>
                                 <td class="text-center"> {{$num+1}} </td>
-                                <td>{{$row->account_type_name??''}}</td>
-                                <td class="text-center">@if(isset($row->is_active)&&$row->is_active==1)<span class="shadow-none badge badge-success">Active</span>@else <span class="shadow-none badge badge-danger">Inactive</span> @endif</td>
+                                <td>{{$row->sales_date??''}}</td>
+                                <td>{{$row->car_plate??''}}</td>
+                                <td>{{$row->item->item_name??''}}</td>
+                                <td>{{number_format($row->total_sale_price??0,2)}}</td>
+                                <td>{{$row->created_at??''}}</td>
                                 <td class="text-center">
                                     <ul class="table-controls">
                                         <li>
-                                            <a href="{{route('account_type.edit',$row)}}" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-8 mb-1"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a>
+                                            <a href="{{route('item_sale.edit',$row)}}" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-8 mb-1"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a>
                                         </li>
                                         <li>
-                                            <a onclick="if(confirm('Are you sure you want to delete?')){window.location.href='{{route('account_type.destroy',$row)}}'}" href="#" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash p-1 br-8 mb-1"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
+                                            <a onclick="if(confirm('Are you sure you want to delete?')){window.location.href='{{route('item_sale.destroy',$row)}}'}" href="#" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash p-1 br-8 mb-1"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
                                         </li>
                                     </ul>
                                 </td>

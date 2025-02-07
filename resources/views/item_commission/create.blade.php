@@ -16,7 +16,8 @@
                         </div>
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item">Account Type</li>
+                                <li class="breadcrumb-item">Settings</li>
+                                <li class="breadcrumb-item"><a href="{{route('item_commission.index')}}">Item Commission</a></li>
                                 <li class="breadcrumb-item">Create</li>
                             </ol>
                         </nav>
@@ -30,41 +31,38 @@
     
     <div class="row layout-top-spacing">
         <div id="basic" class="col-lg-12 layout-spacing">
-        </div>
-        <div id="basic" class="col-lg-6 layout-spacing">
             <div class="statbox widget box box-shadow">
                 <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Account Type Details</h4>
+                            <h4>Item Commission</h4>
                         </div>                 
                     </div>
                 </div>
                 <div class="widget-content widget-content-area" style="padding: 16px 15px">
-
-                    <div class="row" >
-                        <form enctype="multipart/form-data" @if (isset($account_type)) method="post" action="{{ route('account_type.update',$account_type) }}" @else method="post" action="{{ route('account_type.store') }}" @endif>
-                        @csrf
-                        <div class="col-lg-12 col-12 ">
+                    <form enctype="multipart/form-data" method="post" action="{{ route('item_commission.update',$item_commission) }}">
+                    @csrf
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-text">Account Type Name</label>
-                                <input id="t-text" type="text" name="account_type_name" placeholder="name" class="form-control" value="{{$account_type->account_type_name??''}}" required>
+                                <label for="t-group">Item Name</label>
+                                <input id="t-text" type="text" name="type" placeholder="item name..." class="form-control" value="{{$item_commission->type??''}}" readonly >
                             </div>
-                        </div>
-                        <div class="col-lg-12 col-12 ">
+                        </div>   
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-text">Status</label>
-                                <select class="form-select" aria-label="Default select example" name="is_active">
-                                    <option value="1" <?php echo isset($account_type)&&$account_type->is_active == 1?'selected':'' ?>>Active</option>
-                                    <option value="0" <?php echo isset($account_type)&&$account_type->is_active == 0?'selected':'' ?>>Inactive</option>
-                                </select>
+                                <label for="t-group">Item Cost</label>
+                                <input id="t-text" type="number" step="0.01" name="rate" placeholder="item cost..." class="form-control" value="{{$item_commission->rate??''}}">
                             </div>
-                        </div> 
-                        <button type="submit" class="mt-2  btn btn-primary float-right" style="margin-right:10px">Save</button>
-                        <a href="{{route('account_type.index')}}" class="mt-2  btn btn-warning float-right" style="margin-right:10px">Back</a>
-                        </form> 
+                        </div>   
+                        <div class="col-lg-12 col-12 ">
+                            <button type="submit" class="mt-4 btn btn-primary float-right">Submit</button>
+                            <a href="{{route('item_commission.index')}}" class="mt-4  btn btn-warning float-right" style="margin-right:10px">Back</a>
+                            
+                        </div>                                     
                     </div>
-                </div> 
+                    </form>   
+                </div>
             </div>
         </div>
     </div>
