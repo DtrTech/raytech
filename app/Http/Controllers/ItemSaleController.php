@@ -141,11 +141,21 @@ class ItemSaleController extends Controller
         return redirect()->route('item_sale.index')->withSuccess('Data updated');
     }
 
-    public function destroy(Sale $sale)
+    public function destroy(ItemSale $item_sale)
     {
-        $sale->delete();
+        if($item_sale->workers->count()>0){
+            foreach($item_sale->workers as $worker){
+                $worker->delete();
+            }
+        }
+        if($item_sale->salePersons->count()>0){
+            foreach($item_sale->salePersons as $sales){
+                $sales->delete();
+            }
+        }
+        $item_sale->delete();
 
-        return redirect()->route('sale.index')->withSuccess('Data deleted');
+        return redirect()->route('item_sale.index')->withSuccess('Data updated');
     }
    
 }
