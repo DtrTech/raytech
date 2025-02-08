@@ -64,4 +64,49 @@ class Sale extends Model
         $all_products = Product::whereIn('id', $this->product_ids)->pluck('product_name')->implode(', ');
         return $all_products;
     }
+
+    public function fws_worker()
+    {
+        return $this->belongsTo('App\Models\User','fws_worker_id');
+    }
+
+    public function rws_worker()
+    {
+        return $this->belongsTo('App\Models\User','rws_worker_id');
+    }
+
+    public function r1_worker()
+    {
+        return $this->belongsTo('App\Models\User','r1_worker_id');
+    }
+
+    public function r2_worker()
+    {
+        return $this->belongsTo('App\Models\User','r2_worker_id');
+    }
+
+    public function l1_worker()
+    {
+        return $this->belongsTo('App\Models\User','l1_worker_id');
+    }
+
+    public function l2_worker()
+    {
+        return $this->belongsTo('App\Models\User','l2_worker_id');
+    }
+
+    public function r3_worker()
+    {
+        return $this->belongsTo('App\Models\User','r3_worker_id');
+    }
+
+    public function l3_worker()
+    {
+        return $this->belongsTo('App\Models\User','l3_worker_id');
+    }
+
+    public function srf_worker()
+    {
+        return $this->belongsTo('App\Models\User','srf_worker_id');
+    }
 }

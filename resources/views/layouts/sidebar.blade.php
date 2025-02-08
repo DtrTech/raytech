@@ -53,15 +53,12 @@ $currentRoute = request()->route()->getName();
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
 				</div>
 			</a>
-			<ul class="collapse submenu list-unstyled {{ $currentRoute == 'report.by_car'||$currentRoute == 'report.by_user'||$currentRoute == 'report.details' ? 'show' : ''}}" id="reports" data-bs-parent="#accordionExample">
-				<li class="{{ $currentRoute == 'report.by_car' ? 'active' : ''}}">
-					<a href="{{route('report.by_car')}}"> BY CAR </a>
-				</li>
+			<ul class="collapse submenu list-unstyled {{ $currentRoute == 'report.by_user'||$currentRoute == 'report.tint_sale_details' ? 'show' : ''}}" id="reports" data-bs-parent="#accordionExample">
 				<li class="{{ $currentRoute == 'report.by_user' ? 'active' : ''}}">
 					<a href="{{route('report.by_user')}}"> BY TECHNICIAN </a>
 				</li>
-				<li class="{{ $currentRoute == 'report.details' ? 'active' : ''}}">
-					<a href="{{route('report.details')}}"> TECHNICIAN DT </a>
+				<li class="{{ $currentRoute == 'report.tint_sale_details' ? 'active' : ''}}">
+					<a href="{{route('report.tint_sale_details')}}"> TECHNICIAN DT </a>
 				</li>
 			</ul>
 		</li>
