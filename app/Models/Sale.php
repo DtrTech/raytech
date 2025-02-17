@@ -53,6 +53,10 @@ class Sale extends Model
         'r3_product_id',
         'r3_degree',
         'r3_remove_worker_id',
+        'srf2_worker_id',
+        'srf2_product_id',
+        'srf2_degree',
+        'srf2_remove_worker_id',
     ];
 
     protected $casts = [
@@ -108,5 +112,10 @@ class Sale extends Model
     public function srf_worker()
     {
         return $this->belongsTo('App\Models\User','srf_worker_id');
+    }
+
+    public function srf2_worker()
+    {
+        return $this->belongsTo('App\Models\User','srf2_worker_id');
     }
 }

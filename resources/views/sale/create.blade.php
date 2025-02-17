@@ -489,6 +489,50 @@
                                 <input id="t-text" type="number" min="0" name="srf_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->srf_degree??''}}" >
                             </div>
                         </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF 2 Worker</label>
+                                <select id="srf2_worker_id" name="srf2_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->srf2_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF 2 RT (Optional)</label>
+                                <select id="srf2_remove_worker_id" name="srf2_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->srf2_remove_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF 2 Product</label>
+                                <select id="srf2_product_id" name="srf2_product_id" placeholder="Select a product..." autocomplete="off">
+                                <option value="">Select a product...</option>
+                                @foreach($selected_product as $index=>$sel_prod)
+                                <option value="{{ $sel_prod->id ?? '' }}" 
+                                    @if((isset($sale) && $sel_prod->id == $sale->srf2_product_id) || (!isset($sale->srf2_product_id) && $index == 0)) 
+                                        selected 
+                                    @endif>
+                                    {{ $sel_prod->product_name ?? '' }}
+                                </option>
+                                @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF 2 Darkness (Optional)</label>
+                                <input id="t-text" type="number" min="0" name="srf2_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->srf2_degree??''}}" >
+                            </div>
+                        </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label style="color:red">** RT = Remove Tinted</label>
@@ -542,5 +586,8 @@
     new TomSelect("#srf_worker_id");
     new TomSelect("#srf_product_id");
     new TomSelect("#srf_remove_worker_id");
+    new TomSelect("#srf2_worker_id");
+    new TomSelect("#srf2_product_id");
+    new TomSelect("#srf2_remove_worker_id");
 </script>
 @endsection

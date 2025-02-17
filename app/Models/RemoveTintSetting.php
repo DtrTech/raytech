@@ -19,5 +19,6 @@ class RemoveTintSetting extends Model
         'r2',
         'r3',
         'srf',
+        'srf2',
     ];
 }

@@ -96,6 +96,12 @@
                                 <input id="t-text" type="number" min="0" step="0.01" name="r3" placeholder="r3 commission..." class="form-control" value="{{$tintremove->r3??''}}" required >
                             </div>
                         </div> 
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF2 Remove Commission</label>
+                                <input id="t-text" type="number" min="0" step="0.01" name="srf2" placeholder="srf2 commission..." class="form-control" value="{{$tintremove->srf2??''}}" required >
+                            </div>
+                        </div> 
                         <div class="col-lg-12 col-12 ">
                             <button type="submit" class="mt-4 btn btn-primary float-right">Submit</button>
                             <a href="{{route('removetint.index')}}" class="mt-4  btn btn-warning float-right" style="margin-right:10px">Back</a>

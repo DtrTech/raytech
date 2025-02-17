@@ -43,30 +43,24 @@
                     <form enctype="multipart/form-data" @if (isset($product)) method="post" action="{{ route('product.update',$product) }}" @else method="post" action="{{ route('product.store') }}" @endif>
                     @csrf
                     <div class="row">
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">Product Name</label>
                                 <input id="t-text" type="text" name="product_name" placeholder="product name..." class="form-control" value="{{$product->product_name??''}}" required >
                             </div>
                         </div>   
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">FWS Commission</label>
                                 <input id="t-text" type="number" min="0" step="0.01" name="fws" placeholder="fws commission..." class="form-control" value="{{$product->fws??''}}" required >
                             </div>
                         </div>  
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">RWS Commission</label>
                                 <input id="t-text" type="number" min="0" step="0.01" name="rws" placeholder="rws commission..." class="form-control" value="{{$product->rws??''}}" required >
                             </div>
                         </div>  
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">SRF Commission</label>
-                                <input id="t-text" type="number" min="0" step="0.01" name="srf" placeholder="srf commission..." class="form-control" value="{{$product->srf??''}}" required >
-                            </div>
-                        </div> 
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L1 Commission</label>
@@ -101,6 +95,18 @@
                             <div class="form-group">
                                 <label for="t-group">R3 Commission</label>
                                 <input id="t-text" type="number" min="0" step="0.01" name="r3" placeholder="r3 commission..." class="form-control" value="{{$product->r3??''}}" required >
+                            </div>
+                        </div> 
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF Commission</label>
+                                <input id="t-text" type="number" min="0" step="0.01" name="srf" placeholder="srf commission..." class="form-control" value="{{$product->srf??''}}" required >
+                            </div>
+                        </div> 
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF2 Commission</label>
+                                <input id="t-text" type="number" min="0" step="0.01" name="srf2" placeholder="srf2 commission..." class="form-control" value="{{$product->srf2??''}}" required >
                             </div>
                         </div> 
                         @if(isset($product))
