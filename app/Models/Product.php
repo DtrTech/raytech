@@ -23,6 +23,7 @@ class Product extends Model
         'r3',
         'srf',
         'srf2',
+        'srfbig',
         'is_active',
     ];
 }

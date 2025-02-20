@@ -24,7 +24,7 @@ class TintSalesExport implements FromCollection, WithHeadings, WithMapping
 
     public function headings(): array
     {
-        return ["Date", "Car Model", "Car Plate", "Product", "FWS", "RWS", "R1", "R2", "L1", "L2", "R3", "L3", "SRF",'TC','TRC','Created At'];
+        return ["Date", "Car Model", "Car Plate", "Product", "FWS", "RWS", "R1", "R2", "L1", "L2", "R3", "L3", "SRF","SRF 2","SRF Big",'TC','TRC','Created At'];
     }
 
     public function map($sale): array
@@ -43,6 +43,8 @@ class TintSalesExport implements FromCollection, WithHeadings, WithMapping
             $sale->r3_worker->username??'',
             $sale->l3_worker->username??'',
             $sale->srf_worker->username??'',
+            $sale->srf2_worker->username??'',
+            $sale->srfbig_worker->username??'',
             $sale->total??0,
             $sale->total_remove_commission??0,
             $sale->created_at->format('Y-m-d H:i:s'),

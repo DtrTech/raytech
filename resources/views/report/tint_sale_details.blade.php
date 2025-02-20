@@ -69,6 +69,8 @@
                                 <th>R3</th>
                                 <th>L3</th>
                                 <th>SRF</th>
+                                <th>SRF 2 </th>
+                                <th>SRF Big</th>
                                 <th>TC</th>
                                 <th>TRC</th>
                                 <th>Created At</th>
@@ -91,6 +93,8 @@
                                 <td>{{$row->r3_worker->username??''}}</td>
                                 <td>{{$row->l3_worker->username??''}}</td>
                                 <td>{{$row->srf_worker->username??''}}</td>
+                                <td>{{$row->srf2_worker->username??''}}</td>
+                                <td>{{$row->srfbig_worker->username??''}}</td>
                                 <td>{{$row->total??''}}</td>
                                 <td>{{$row->total_remove_commission??''}}</td>
                                 <td>{{$row->created_at??''}}</td>

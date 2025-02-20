@@ -57,6 +57,10 @@ class Sale extends Model
         'srf2_product_id',
         'srf2_degree',
         'srf2_remove_worker_id',
+        'srfbig_worker_id',
+        'srfbig_product_id',
+        'srfbig_degree',
+        'srfbig_remove_worker_id',
     ];
 
     protected $casts = [
@@ -117,5 +121,10 @@ class Sale extends Model
     public function srf2_worker()
     {
         return $this->belongsTo('App\Models\User','srf2_worker_id');
+    }
+
+    public function srfbig_worker()
+    {
+        return $this->belongsTo('App\Models\User','srfbig_worker_id');
     }
 }

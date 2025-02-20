@@ -109,6 +109,12 @@
                                 <input id="t-text" type="number" min="0" step="0.01" name="srf2" placeholder="srf2 commission..." class="form-control" value="{{$product->srf2??''}}" required >
                             </div>
                         </div> 
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label for="t-group">SRF Big Commission</label>
+                                <input id="t-text" type="number" min="0" step="0.01" name="srfbig" placeholder="srfbig commission..." class="form-control" value="{{$product->srfbig??''}}" required >
+                            </div>
+                        </div> 
                         @if(isset($product))
                         <div class="col-lg-12 col-12 ">
                             <div class="form-group">
