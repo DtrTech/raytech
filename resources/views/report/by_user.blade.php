@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .table > tbody > tr > td{
+        padding: 7px 7px 7px 7px;
+        font-size: 12px;
+    }
+</style>
 <div class="middle-content container-xxl p-0">
 
     <!--  BEGIN BREADCRUMBS  -->
