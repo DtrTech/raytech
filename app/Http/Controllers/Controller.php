@@ -29,7 +29,8 @@ class Controller extends BaseController
         foreach ($user_ids as $user) {
             $worker[$user] = [
                 'total' => 0,
-                'total_remove_commission' => 0
+                'total_remove_commission' => 0,
+                'full_total' => 0
             ];
         }
     
