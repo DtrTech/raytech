@@ -129,8 +129,8 @@
                "sLengthMenu": "Results :  _MENU_",
             },
             "stripeClasses": [],
-            "lengthMenu": [5, 10, 20, 50],
-            "pageLength": 10
+            "lengthMenu": [50, 100, 200, 500, 1000],
+            "pageLength": 100
         });
 
         multiCheck(c3);
