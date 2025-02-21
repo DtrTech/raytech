@@ -106,12 +106,12 @@
                         </tbody>
                         <tfooter>
                             <tr>
-                                <td colspan="5" align="right"><b>All Total</b></td>
+                                <td colspan="5" align="right"><b>All Total</td>
                                 @foreach($worker as $work)
                                 <td>{{ $worker_totals[$work->id] ?? 0 }}</td>
                                 @endforeach
                                 <td>{{ $total_tc }}</td>
-                                <td>{{ $total_trc }}</td>
+                                <td>{{ $total_trc }}</b></td>
                                 <!-- <td></td> -->
                             </tr>
                         </tfooter>
