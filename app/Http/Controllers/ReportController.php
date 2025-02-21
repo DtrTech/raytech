@@ -64,7 +64,7 @@ class ReportController extends Controller
             $s->total_remove_commission = $data['all_total_remove_commission'];
             foreach($worker as $w){
                 $id = $w->id;
-                $s->$id = $data['worker'][$id]['total']??0;
+                $s->$id = $data['worker'][$id]['full_total']??0;
             }
         }
 

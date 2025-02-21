@@ -49,12 +49,14 @@ class Controller extends BaseController
     
                 $all_total += $commission;
                 $worker[$worker_id]['total'] += $commission;
+                $worker[$worker_id]['full_total'] += $commission;
             }
     
             if ($remove_worker_id > 0) {
                 $remove_commission = $tintRemoveSetting->{$role} ?? 0;
                 $all_total_remove_commission += $remove_commission;
                 $worker[$remove_worker_id]['total_remove_commission'] += $remove_commission;
+                $worker[$worker_id]['full_total'] += $remove_commission;
             }
         }
     
