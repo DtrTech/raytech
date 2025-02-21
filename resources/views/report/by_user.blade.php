@@ -50,7 +50,20 @@
                         </form>
                     </div>
 
+                    <?php 
+                        $worker_totals = []; 
+                        $total_tc = 0;
+                        $total_trc = 0;
 
+                        foreach ($sale as $row) {
+                            foreach ($worker as $work) {
+                                $id = $work->id;
+                                $worker_totals[$id] = ($worker_totals[$id] ?? 0) + ($row->$id ?? 0);
+                            }
+                            $total_tc += $row->total ?? 0;
+                            $total_trc += $row->total_remove_commission ?? 0;
+                        }
+                    ?>
                     <table id="style-3" class="table style-3 dt-table-hover non-hover">
                         <thead>
                             <tr>
@@ -85,6 +98,17 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfooter>
+                            <tr>
+                                <td colspan="5" align="right"><b>All Total</b></td>
+                                @foreach($worker as $work)
+                                <td>{{ $worker_totals[$work->id] ?? 0 }}</td>
+                                @endforeach
+                                <td>{{ $total_tc }}</td>
+                                <td>{{ $total_trc }}</td>
+                                <td></td>
+                            </tr>
+                        </tfooter>
                     </table>
                 </div>
             </div>
@@ -107,8 +131,8 @@
                "sLengthMenu": "Results :  _MENU_",
             },
             "stripeClasses": [],
-            "lengthMenu": [5, 10, 20, 50],
-            "pageLength": 10
+            "lengthMenu": [20, 50, 200, 500, 1000],
+            "pageLength": 1000
         });
 
         multiCheck(c3);
