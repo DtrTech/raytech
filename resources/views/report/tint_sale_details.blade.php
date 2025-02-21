@@ -84,17 +84,17 @@
                                 <td>{{$row->car_model??''}}</td>
                                 <td>{{$row->carplate??''}}</td>
                                 <td>{{$row->product??''}}</td>
-                                <td>{{$row->fws_worker->username??''}}</td>
-                                <td>{{$row->rws_worker->username??''}}</td>
-                                <td>{{$row->r1_worker->username??''}}</td>
-                                <td>{{$row->r2_worker->username??''}}</td>
-                                <td>{{$row->l1_worker->username??''}}</td>
-                                <td>{{$row->l2_worker->username??''}}</td>
-                                <td>{{$row->r3_worker->username??''}}</td>
-                                <td>{{$row->l3_worker->username??''}}</td>
-                                <td>{{$row->srf_worker->username??''}}</td>
-                                <td>{{$row->srf2_worker->username??''}}</td>
-                                <td>{{$row->srfbig_worker->username??''}}</td>
+                                <td>{{$row->fws_worker->username??''}}{{$row->fws_remove_worker->username??''}}</td>
+                                <td>{{$row->rws_worker->username??''}}{{$row->rws_remove_worker->username??''}}</td>
+                                <td>{{$row->r1_worker->username??''}}{{$row->r1_remove_worker->username??''}}</td>
+                                <td>{{$row->r2_worker->username??''}}{{$row->r2_remove_worker->username??''}}</td>
+                                <td>{{$row->l1_worker->username??''}}{{$row->l1_remove_worker->username??''}}</td>
+                                <td>{{$row->l2_worker->username??''}}{{$row->l2_remove_worker->username??''}}</td>
+                                <td>{{$row->r3_worker->username??''}}{{$row->r3_remove_worker->username??''}}</td>
+                                <td>{{$row->l3_worker->username??''}}{{$row->l3_remove_worker->username??''}}</td>
+                                <td>{{$row->srf_worker->username??''}}{{$row->srf_remove_worker->username??''}}</td>
+                                <td>{{$row->srf2_worker->username??''}}{{$row->srf2_remove_worker->username??''}}</td>
+                                <td>{{$row->srfbig_worker->username??''}}{{$row->srfbig_remove_worker->username??''}}</td>
                                 <td>{{$row->total??''}}</td>
                                 <td>{{$row->total_remove_commission??''}}</td>
                                 <td>{{$row->created_at??''}}</td>

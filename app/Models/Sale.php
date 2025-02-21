@@ -127,4 +127,59 @@ class Sale extends Model
     {
         return $this->belongsTo('App\Models\User','srfbig_worker_id');
     }
+
+    public function fws_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','fws_remove_worker_id');
+    }
+
+    public function rws_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','rws_remove_worker_id');
+    }
+
+    public function r1_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','r1_remove_worker_id');
+    }
+
+    public function r2_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','r2_remove_worker_id');
+    }
+
+    public function l1_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','l1_remove_worker_id');
+    }
+
+    public function l2_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','l2_remove_worker_id');
+    }
+
+    public function r3_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','r3_remove_worker_id');
+    }
+
+    public function l3_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','l3_remove_worker_id');
+    }
+
+    public function srf_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','srf_remove_worker_id');
+    }
+
+    public function srf2_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','srf2_remove_worker_id');
+    }
+
+    public function srfbig_remove_worker()
+    {
+        return $this->belongsTo('App\Models\User','srfbig_remove_worker_id');
+    }
 }
