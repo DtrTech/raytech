@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .table > tbody > tr > td{
+        padding: 7px 7px 7px 7px;
+        font-size: 12px;
+    }
+</style>
 <div class="middle-content container-xxl p-0">
 
     <!--  BEGIN BREADCRUMBS  -->
@@ -73,7 +79,7 @@
                                 <th>SRF Big</th>
                                 <th>TC</th>
                                 <th>TRC</th>
-                                <th>Created At</th>
+                                <!-- <th>Created At</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -97,7 +103,7 @@
                                 <td>{{$row->srfbig_worker->username??''}}<span style="font-size:0.7rem">{{$row->srfbig_remove_worker->username??''}}</span></td>
                                 <td>{{$row->total??''}}</td>
                                 <td>{{$row->total_remove_commission??''}}</td>
-                                <td>{{$row->created_at??''}}</td>
+                                <!-- <td>{{$row->created_at??''}}</td> -->
                             </tr>
                             @endforeach
                         </tbody>
