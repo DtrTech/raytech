@@ -216,13 +216,13 @@
 
         var total_cost = per_cost_price * quantity;
         
-        if (per_cost_price > 0 && quantity > 0) {
+        if (per_cost_price >= 0 && quantity > 0) {
             total_cost_price_input.value = total_cost.toFixed(2); 
         } else {
             total_cost_price_input.value = ""; 
         }
 
-        if (total_sale_price > 0 && total_cost > 0) {
+        if (total_sale_price > 0 && total_cost >= 0) {
             var profitEarn = total_sale_price - total_cost;
             profit_input.value = profitEarn.toFixed(2);
         } else {
