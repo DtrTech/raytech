@@ -77,7 +77,7 @@
                                 @endforeach
                                 <th>TC</th>
                                 <th>TRC</th>
-                                <th>Created At</th>
+                                <!-- <th>Created At</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -94,7 +94,7 @@
                                 @endforeach
                                 <td>{{$row->total??''}}</td>
                                 <td>{{$row->total_remove_commission??''}}</td>
-                                <td>{{$row->created_at??''}}</td>
+                                <!-- <td>{{$row->created_at??''}}</td> -->
                             </tr>
                             @endforeach
                         </tbody>
@@ -106,7 +106,7 @@
                                 @endforeach
                                 <td>{{ $total_tc }}</td>
                                 <td>{{ $total_trc }}</td>
-                                <td></td>
+                                <!-- <td></td> -->
                             </tr>
                         </tfooter>
                     </table>
