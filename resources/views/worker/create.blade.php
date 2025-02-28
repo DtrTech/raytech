@@ -35,7 +35,7 @@
                 <div class="widget-header">
                     <div class="row">
                         <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                            <h4>Group</h4>
+                            <h4>Worker</h4>
                         </div>                 
                     </div>
                 </div>
@@ -49,6 +49,15 @@
                                 <input id="t-text" type="text" name="name" placeholder="worker name..." class="form-control" value="{{$worker->name??''}}" required >
                             </div>
                         </div>
+                        <div class="col-lg-12 col-12 ">
+                            <div class="form-group">
+                                <label for="t-text">Role</label>
+                                <select class="form-select" aria-label="Default select example" name="role_id">
+                                    <option value="2" <?php echo isset($worker)&&$worker->role_id == 2?'selected':'' ?>>Tinted Pro</option>
+                                    <option value="3" <?php echo isset($worker)&&$worker->role_id == 3?'selected':'' ?>>Sales</option>
+                                </select>
+                            </div>
+                        </div> 
                         @if(isset($worker))
                         <div class="col-lg-12 col-12 ">
                             <div class="form-group">

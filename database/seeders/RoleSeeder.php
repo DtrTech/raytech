@@ -16,5 +16,6 @@ class RoleSeeder extends Seeder
     {
     	Bouncer::role()->firstOrCreate([ 'name' => 'admin', 'title' => 'Admin', ]);
     	Bouncer::role()->firstOrCreate([ 'name' => 'staff', 'title' => 'Staff', ]);
+    	Bouncer::role()->firstOrCreate([ 'name' => 'sales', 'title' => 'Sales', ]);
     }
 }

@@ -15,7 +15,7 @@ class WorkerController extends Controller
 {
     public function index(Request $request)
     {
-        $worker = User::where('role_id',2)->get();
+        $worker = User::whereIn('role_id',[2,3])->get();
         
         return view('worker.index')->with('worker',$worker);
     }
@@ -30,7 +30,6 @@ class WorkerController extends Controller
         $request->merge([
             'password'=>Hash::make('123456789'),
             'username'=>$request->name,
-            'role_id'=>2,
         ]);
         $worker = User::create($request->all());
         
