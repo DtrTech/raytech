@@ -19,7 +19,12 @@ class Controller extends BaseController
         $user_ids = [
             $sale->fws_worker_id, $sale->rws_worker_id, $sale->r1_worker_id,
             $sale->r2_worker_id, $sale->l1_worker_id, $sale->l2_worker_id,
-            $sale->r3_worker_id, $sale->l3_worker_id, $sale->srf_worker_id, $sale->srf2_worker_id, $sale->srfbig_worker_id
+            $sale->r3_worker_id, $sale->l3_worker_id, $sale->srf_worker_id, 
+            $sale->srf2_worker_id, $sale->srfbig_worker_id,
+            $sale->fws_remove_worker_id, $sale->rws_remove_worker_id, $sale->r1_remove_worker_id,
+            $sale->r2_remove_worker_id, $sale->l1_remove_worker_id, $sale->l2_remove_worker_id,
+            $sale->r3_remove_worker_id, $sale->l3_remove_worker_id, $sale->srf_remove_worker_id, 
+            $sale->srf2_remove_worker_id, $sale->srfbig_remove_worker_id
         ];
         $user_ids = array_filter(array_unique($user_ids), function($id) {
             return !empty($id);
@@ -57,7 +62,7 @@ class Controller extends BaseController
                 $remove_commission = $tintRemoveSetting->{$role} ?? 0;
                 $all_total_remove_commission += $remove_commission;
                 $worker[$remove_worker_id]['total_remove_commission'] += $remove_commission;
-                $worker[$worker_id]['full_total'] += $remove_commission;
+                $worker[$remove_worker_id]['full_total'] += $remove_commission;
             }
         }
     
