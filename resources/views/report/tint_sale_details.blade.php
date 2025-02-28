@@ -57,7 +57,15 @@
                         <span>TC => Total Commission, TRC => Total Remove Commission</span>
                     </div>
 
+                    <?php 
+                        $total_tc = 0;
+                        $total_trc = 0;
 
+                        foreach ($sale as $row) {
+                            $total_tc += $row->total ?? 0;
+                            $total_trc += $row->total_remove_commission ?? 0;
+                        }
+                    ?>
                     <table id="style-3" class="table style-3 dt-table-hover non-hover">
                         <thead>
                             <tr>
@@ -107,6 +115,14 @@
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfooter>
+                            <tr>
+                                <td colspan="16" align="right"><b>All Total</b></td>
+                                <td><b>{{ $total_tc }}</b></td>
+                                <td><b>{{ $total_trc }}</b></td>
+                                <!-- <td></td> -->
+                            </tr>
+                        </tfooter>
                     </table>
                 </div>
             </div>
@@ -130,7 +146,7 @@
             },
             "stripeClasses": [],
             "lengthMenu": [50, 100, 200, 500, 1000],
-            "pageLength": 100
+            "pageLength": 500
         });
 
         multiCheck(c3);
