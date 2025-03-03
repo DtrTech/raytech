@@ -42,7 +42,7 @@ class Controller extends BaseController
     
         $all_total = 0;
         $all_total_remove_commission = 0;
-    
+        dump($worker);
         $roles = ['fws', 'rws', 'r1', 'r2', 'l1', 'l2', 'r3', 'l3', 'srf','srf2','srfbig'];
         
         foreach ($roles as $role) {
@@ -55,6 +55,7 @@ class Controller extends BaseController
                 $commission = $product->{$role} ?? 0;
     
                 $all_total += $commission;
+                dump($worker_id);
                 $worker[$worker_id]['total'] += $commission;
                 $worker[$worker_id]['full_total'] += $commission;
             }
