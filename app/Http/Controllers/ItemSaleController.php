@@ -21,13 +21,20 @@ class ItemSaleController extends Controller
     public function index(Request $request)
     {
         if(isset($request->select_date)){
-            $today = Carbon::parse($request->select_date)->format('Y-m-d');
+            $from = Carbon::parse($request->select_date)->format('Y-m-d');
         }else{
-            $today = Carbon::now()->format('Y-m-d');
+            $from = Carbon::now()->format('Y-m-d');
         }
-        $item_sale = ItemSale::where('sales_date',$today)->orderBy('id','DESC')->get();
+
+        if(isset($request->select_date_to)){
+            $to = Carbon::parse($request->select_date_to)->format('Y-m-d');
+        }else{
+            $to = Carbon::now()->format('Y-m-d');
+        }
         
-        return view('item_sale.index')->with('item_sale',$item_sale)->with('today',$today);
+        $item_sale = ItemSale::whereBetween('sales_date',[$from,$to])->orderBy('id','DESC')->get();
+        
+        return view('item_sale.index')->with('item_sale',$item_sale)->with('from',$from)->with('to',$to);
     }
 
     public function create()

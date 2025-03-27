@@ -19,13 +19,19 @@ class SaleController extends Controller
     public function index(Request $request)
     {
         if(isset($request->select_date)){
-            $today = Carbon::parse($request->select_date)->format('Y-m-d');
+            $from = Carbon::parse($request->select_date)->format('Y-m-d');
         }else{
-            $today = Carbon::now()->format('Y-m-d');
+            $from = Carbon::now()->format('Y-m-d');
         }
-        $sale = Sale::where('sales_date',$today)->orderBy('id','DESC')->get();
+
+        if(isset($request->select_date_to)){
+            $to = Carbon::parse($request->select_date_to)->format('Y-m-d');
+        }else{
+            $to = Carbon::now()->format('Y-m-d');
+        }
+        $sale = Sale::whereBetween('sales_date',[$from,$to])->orderBy('id','DESC')->get();
         
-        return view('sale.index')->with('sale',$sale)->with('today',$today);
+        return view('sale.index')->with('sale',$sale)->with('from',$from)->with('to',$to);
     }
 
     public function create()

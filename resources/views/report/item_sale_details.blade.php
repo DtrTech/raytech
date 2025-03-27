@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .table > tbody > tr > td{
+        padding: 7px 7px 7px 7px;
+        font-size: 12px;
+    }
+</style>
 <div class="middle-content container-xxl p-0">
 
     <!--  BEGIN BREADCRUMBS  -->
@@ -17,7 +23,7 @@
                         <nav class="breadcrumb-style-one" aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">Settings</li>
-                                <li class="breadcrumb-item">Sales</li>
+                                <li class="breadcrumb-item">MONTHLY ITEM SALES REPORT</li>
                             </ol>
                         </nav>
         
@@ -37,60 +43,83 @@
                         <form method="GET">
                             <div class="d-flex">
                                 <div class="form-group">
-                                    <input type="date" class="form-control form-control-sm" name="select_date" value="{{$from??''}}">
+                                    <input type="date" class="form-control form-control-sm" name="date_from" value="{{$date_from??''}}">
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" class="form-control form-control-sm" name="select_date_to" value="{{$to??''}}">
+                                    <input type="date" class="form-control form-control-sm" name="date_to" value="{{$date_to??''}}">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Search</button>
+                                    <!-- <button name="excel" class="btn btn-primary" value=1>Excel</button> -->
                                 </div>
                             </div>
                         </form>
-
-                        <!-- Create button aligned to the right -->
-                        <div>
-                            <a href="{{ route('sale.create') }}" class="btn btn-outline-primary _effect--ripple waves-effect waves-light">
-                                Create
-                            </a>
-                        </div>
+                        <span>TC => Total Commission, TRC => Total Remove Commission</span>
                     </div>
 
-
+                    
                     <table id="style-3" class="table style-3 dt-table-hover non-hover">
                         <thead>
                             <tr>
                                 <th class="checkbox-column dt-no-sorting text-center">#</th>
                                 <th>Date</th>
-                                <th>Car Model</th>
                                 <th>Car Plate</th>
-                                <th>Product</th>
-                                <th>Created At</th>
-                                <th class="text-center dt-no-sorting">Actions</th>
+                                <th>Item</th>
+                                <th class="text-center">QTY</th>
+                                <th class="text-center">Cost</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Profit</th>
+                                <th class="text-center">SA</th>
+                                <th class="text-center">PV DATE</th>
+                                <th class="text-center">SALES COM</th>
+                                <th class="text-center">WORK COM</th>
+                                <th class="text-center">NET</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($sale as $num => $row)
+                            <?php 
+                                $total_profit = 0;
+                                $total_sa = 0;
+                                $total_sale = 0;
+                                $total_work = 0;
+                                $total_net_profit = 0;
+                            ?>
+                            @foreach($item_sale as $num => $row)
+                            <?php  
+                                $total_profit += $row->profit ?? 0;
+                                $total_sa += $row->sa_commission ?? 0;
+                                $total_sale += $row->sales_commission ?? 0;
+                                $total_work += $row->work_commission ?? 0;
+                                $total_net_profit += $row->net_profit ?? 0;
+                            ?>
                             <tr>
                                 <td class="text-center"> {{$num+1}} </td>
                                 <td>{{$row->sales_date??''}}</td>
-                                <td>{{$row->car_model??''}}</td>
-                                <td>{{$row->carplate??''}}</td>
-                                <td>{{$row->product??''}}</td>
-                                <td>{{$row->created_at??''}}</td>
-                                <td class="text-center">
-                                    <ul class="table-controls">
-                                        <li>
-                                            <a href="{{route('sale.edit',$row)}}" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" data-original-title="Edit"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 p-1 br-8 mb-1"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg></a>
-                                        </li>
-                                        <li>
-                                            <a onclick="if(confirm('Are you sure you want to delete?')){window.location.href='{{route('sale.destroy',$row)}}'}" href="#" class="bs-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" data-original-title="Delete"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash p-1 br-8 mb-1"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></a>
-                                        </li>
-                                    </ul>
-                                </td>
+                                <td>{{$row->car_plate??''}}</td>
+                                <td>{{$row->item->item_name??''}}</td>
+                                <td class="text-center">{{$row->quantity??''}}</td>
+                                <td class="text-center">{{$row->total_cost_price??''}}</td>
+                                <td class="text-center">{{$row->total_sale_price??''}}</td>
+                                <td class="text-center">{{$row->profit??''}}</td>
+                                <td class="text-center">{{$row->sa_commission??''}}</td>
+                                <td class="text-center">{{$row->issue_pv_date??''}}</td>
+                                <td class="text-center">{{$row->sales_commission??''}}({{$row->salePersons->count()??0}})</td>
+                                <td class="text-center">{{$row->work_commission??''}}({{$row->workers->count()??0}})</td>
+                                <td class="text-center">{{$row->net_profit??''}}</td>
                             </tr>
                             @endforeach
                         </tbody>
+                        <tfooter>
+                            <tr>
+                                <td colspan="7" align="right"><b>All Total</b></td>
+                                <td class="text-center"><b>{{ $total_profit }}</b></td>
+                                <td class="text-center"><b>{{ $total_sa }}</b></td>
+                                <td><b></b></td>
+                                <td class="text-center"><b>{{ $total_sale }}</b></td>
+                                <td class="text-center"><b>{{ $total_work }}</b></td>
+                                <td class="text-center"><b>{{ $total_net_profit }}</b></td>
+                            </tr>
+                        </tfooter>
                     </table>
                 </div>
             </div>
@@ -113,8 +142,8 @@
                "sLengthMenu": "Results :  _MENU_",
             },
             "stripeClasses": [],
-            "lengthMenu": [5, 10, 20, 50],
-            "pageLength": 10
+            "lengthMenu": [50, 100, 200, 500, 1000],
+            "pageLength": 500
         });
 
         multiCheck(c3);

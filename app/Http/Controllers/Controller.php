@@ -9,6 +9,8 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\RemoveTintSetting;
 use App\Models\Sale;
+use App\Models\ItemSale;
+use App\Models\ItemSaleDt;
 
 class Controller extends BaseController
 {
@@ -17,19 +19,6 @@ class Controller extends BaseController
     public function calculateCommission(Sale $sale){
         
         $tintRemoveSetting = RemoveTintSetting::find(1);
-        // $user_ids = [
-        //     $sale->fws_worker_id, $sale->rws_worker_id, $sale->r1_worker_id,
-        //     $sale->r2_worker_id, $sale->l1_worker_id, $sale->l2_worker_id,
-        //     $sale->r3_worker_id, $sale->l3_worker_id, $sale->srf_worker_id, 
-        //     $sale->srf2_worker_id, $sale->srfbig_worker_id,
-        //     $sale->fws_remove_worker_id, $sale->rws_remove_worker_id, $sale->r1_remove_worker_id,
-        //     $sale->r2_remove_worker_id, $sale->l1_remove_worker_id, $sale->l2_remove_worker_id,
-        //     $sale->r3_remove_worker_id, $sale->l3_remove_worker_id, $sale->srf_remove_worker_id, 
-        //     $sale->srf2_remove_worker_id, $sale->srfbig_remove_worker_id
-        // ];
-        // $user_ids = array_filter(array_unique($user_ids), function($id) {
-        //     return !empty($id);
-        // });
         $user_ids = User::where('role_id',2)->where('is_active',1)->pluck('id')->toArray();
         $worker = [];
         foreach ($user_ids as $user) {
@@ -72,5 +61,32 @@ class Controller extends BaseController
             'all_total' => $all_total,
             'all_total_remove_commission' => $all_total_remove_commission,
         ];
+    }
+
+    public function checkSales(ItemSale $item_sale){
+        $user_ids = User::pluck('id')->toArray();
+        $worker = [];
+        foreach ($user_ids as $user) {
+            $worker[$user] = [
+                'total_sales_commission' => 0,
+                'total_work_commission' => 0,
+                'total_commission' => 0
+            ];
+        }
+
+
+        foreach($item_sale->workers as $work){
+            $worker[$work->worker_id]['total_work_commission'] += $work->worker_commission;
+            $worker[$work->worker_id]['total_commission'] += $work->worker_commission;
+        }
+        foreach($item_sale->salePersons as $sale){
+            $worker[$sale->worker_id]['total_sales_commission'] += $sale->worker_commission;
+            $worker[$sale->worker_id]['total_commission'] += $sale->worker_commission;
+        }
+    
+        return [
+            'worker' => $worker,
+        ];
+    
     }
 }

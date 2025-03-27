@@ -37,7 +37,10 @@
                         <form method="GET">
                             <div class="d-flex">
                                 <div class="form-group">
-                                    <input type="date" class="form-control form-control-sm" name="select_date" value="{{$today??''}}">
+                                    <input type="date" class="form-control form-control-sm" name="select_date" value="{{$from??''}}">
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control form-control-sm" name="select_date_to" value="{{$to??''}}">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Search</button>
