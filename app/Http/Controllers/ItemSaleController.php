@@ -41,7 +41,7 @@ class ItemSaleController extends Controller
     {
         $today = Carbon::now()->format('Y-m-d');
         $items = Item::where('is_active',1)->get();
-        $worker = User::where('role_id',2)->where('is_active',1)->get();
+        $worker = User::whereIn('role_id',[2,3])->where('is_active',1)->get();
         $s_commission_give = ItemCommission::where('type','sale')->first();
         $w_commission_give = ItemCommission::where('type','work')->first();
         return view('item_sale.create')->with('today',$today)->with('items',$items)->with('worker',$worker)->with('s_commission_give',$s_commission_give)->with('w_commission_give',$w_commission_give);
@@ -92,7 +92,7 @@ class ItemSaleController extends Controller
     {
         $today = Carbon::now()->format('Y-m-d');
         $items = Item::where('is_active',1)->get();
-        $worker = User::where('role_id',2)->where('is_active',1)->get();
+        $worker = User::whereIn('role_id',[2,3])->where('is_active',1)->get();
         $s_commission_give = ItemCommission::where('type','sale')->first();
         $w_commission_give = ItemCommission::where('type','work')->first();
 
