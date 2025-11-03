@@ -49,8 +49,9 @@ class Controller extends BaseController
                     ];
                 }
                 
-                $product = Product::find($product_id);
-                $commission = $product->{$role} ?? 0;
+                // Handle case where product might be soft-deleted
+                $product = Product::withTrashed()->find($product_id);
+                $commission = $product ? ($product->{$role} ?? 0) : 0;
     
                 $all_total += $commission;
                 $worker[$worker_id]['total'] += $commission;
@@ -92,7 +93,13 @@ class Controller extends BaseController
             ];
         }
 
+        // Load relationships excluding soft-deleted records (if relationships use soft deletes)
         foreach($item_sale->workers as $work){
+            // Skip if work record is somehow invalid
+            if (!$work || !isset($work->worker_id)) {
+                continue;
+            }
+            
             // Initialize worker if not exists (for deleted users)
             if (!isset($worker[$work->worker_id])) {
                 $worker[$work->worker_id] = [
@@ -102,11 +109,16 @@ class Controller extends BaseController
                 ];
             }
             
-            $worker[$work->worker_id]['total_work_commission'] += $work->worker_commission;
-            $worker[$work->worker_id]['total_commission'] += $work->worker_commission;
+            $worker[$work->worker_id]['total_work_commission'] += $work->worker_commission ?? 0;
+            $worker[$work->worker_id]['total_commission'] += $work->worker_commission ?? 0;
         }
         
         foreach($item_sale->salePersons as $sale){
+            // Skip if sale record is somehow invalid
+            if (!$sale || !isset($sale->worker_id)) {
+                continue;
+            }
+            
             // Initialize worker if not exists (for deleted users)
             if (!isset($worker[$sale->worker_id])) {
                 $worker[$sale->worker_id] = [
@@ -116,8 +128,8 @@ class Controller extends BaseController
                 ];
             }
             
-            $worker[$sale->worker_id]['total_sales_commission'] += $sale->worker_commission;
-            $worker[$sale->worker_id]['total_commission'] += $sale->worker_commission;
+            $worker[$sale->worker_id]['total_sales_commission'] += $sale->worker_commission ?? 0;
+            $worker[$sale->worker_id]['total_commission'] += $sale->worker_commission ?? 0;
         }
     
         return [
