@@ -143,7 +143,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">RWS Worker</label>
                                 <select id="rws_worker_id" name="rws_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -154,7 +154,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">RWS RT (Optional)</label>
                                 <select id="rws_remove_worker_id" name="rws_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -165,7 +165,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">RWS Product</label>
                                 <select id="rws_product_id" name="rws_product_id" placeholder="Select a product..." autocomplete="off">
@@ -181,7 +181,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R1 Worker</label>
                                 <select id="r1_worker_id" name="r1_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -192,7 +192,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R1 RT (Optional)</label>
                                 <select id="r1_remove_worker_id" name="r1_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -203,7 +203,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R1 Product</label>
                                 <select id="r1_product_id" name="r1_product_id" placeholder="Select a product..." autocomplete="off">
@@ -219,7 +219,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R2 Worker</label>
                                 <select id="r2_worker_id" name="r2_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -230,7 +230,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R2 RT (Optional)</label>
                                 <select id="r2_remove_worker_id" name="r2_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -241,7 +241,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R2 Product</label>
                                 <select id="r2_product_id" name="r2_product_id" placeholder="Select a product..." autocomplete="off">
@@ -257,7 +257,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L1 Worker</label>
                                 <select id="l1_worker_id" name="l1_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -268,7 +268,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L1 RT (Optional)</label>
                                 <select id="l1_remove_worker_id" name="l1_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -279,7 +279,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L1 Product</label>
                                 <select id="l1_product_id" name="l1_product_id" placeholder="Select a product..." autocomplete="off">
@@ -295,7 +295,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L2 Worker</label>
                                 <select id="l2_worker_id" name="l2_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -306,7 +306,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L2 RT (Optional)</label>
                                 <select id="l2_remove_worker_id" name="l2_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -317,7 +317,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L2 Product</label>
                                 <select id="l2_product_id" name="l2_product_id" placeholder="Select a product..." autocomplete="off">
@@ -333,7 +333,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R3 Worker</label>
                                 <select id="r3_worker_id" name="r3_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -344,7 +344,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R3 RT (Optional)</label>
                                 <select id="r3_remove_worker_id" name="r3_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -355,7 +355,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">R3 Product</label>
                                 <select id="r3_product_id" name="r3_product_id" placeholder="Select a product..." autocomplete="off">
@@ -371,7 +371,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L3 Worker</label>
                                 <select id="l3_worker_id" name="l3_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -382,7 +382,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L3 RT (Optional)</label>
                                 <select id="l3_remove_worker_id" name="l3_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -393,7 +393,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">L3 Product</label>
                                 <select id="l3_product_id" name="l3_product_id" placeholder="Select a product..." autocomplete="off">
@@ -409,7 +409,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF Worker</label>
                                 <select id="srf_worker_id" name="srf_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -420,7 +420,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF RT (Optional)</label>
                                 <select id="srf_remove_worker_id" name="srf_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -431,7 +431,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF Product</label>
                                 <select id="srf_product_id" name="srf_product_id" placeholder="Select a product..." autocomplete="off">
@@ -447,7 +447,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF 2 Worker</label>
                                 <select id="srf2_worker_id" name="srf2_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -458,7 +458,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF 2 RT (Optional)</label>
                                 <select id="srf2_remove_worker_id" name="srf2_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -469,7 +469,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF 2 Product</label>
                                 <select id="srf2_product_id" name="srf2_product_id" placeholder="Select a product..." autocomplete="off">
@@ -485,7 +485,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF Big Worker</label>
                                 <select id="srfbig_worker_id" name="srfbig_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -496,7 +496,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF Big RT (Optional)</label>
                                 <select id="srfbig_remove_worker_id" name="srfbig_remove_worker_id" placeholder="Select a worker..." autocomplete="off">
@@ -507,7 +507,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label for="t-group">SRF Big Product</label>
                                 <select id="srfbig_product_id" name="srfbig_product_id" placeholder="Select a product..." autocomplete="off">
