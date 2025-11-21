@@ -61,6 +61,7 @@ class Sale extends Model
         'srfbig_product_id',
         'srfbig_degree',
         'srfbig_remove_worker_id',
+        'coating_worker_id',
     ];
 
     protected $casts = [
@@ -181,5 +182,10 @@ class Sale extends Model
     public function srfbig_remove_worker()
     {
         return $this->belongsTo('App\Models\User','srfbig_remove_worker_id');
+    }
+
+    public function coating_worker_id()
+    {
+        return $this->belongsTo('App\Models\User','coating_worker_id');
     }
 }

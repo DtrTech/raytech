@@ -134,8 +134,13 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">FWS Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="fws_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->fws_degree??''}}" >
+                                <label for="t-group">FWS Coating (Optional)</label>
+                                <select id="coating_worker_id" name="coating_worker_id" placeholder="Select a worker..." autocomplete="off">
+                                <option value="">Select a worker...</option>
+                                @foreach($worker as $work)
+                                <option value="{{$work->id??''}}" <?php echo isset($sale)&&$work->id == $sale->coating_worker_id?'selected':'' ?>>{{$work->name??''}}</option>
+                                @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -178,11 +183,6 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">RWS Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="rws_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->rws_degree??''}}" >
-                            </div>
-                        </div><div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
                                 <label for="t-group">R1 Worker</label>
                                 <select id="r1_worker_id" name="r1_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
@@ -217,12 +217,6 @@
                                 </option>
                                 @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R1 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="r1_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r1_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -265,12 +259,6 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">R2 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="r2_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r2_degree??''}}" >
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
                                 <label for="t-group">L1 Worker</label>
                                 <select id="l1_worker_id" name="l1_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
@@ -305,12 +293,6 @@
                                 </option>
                                 @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">L1 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="l1_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->l1_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -353,12 +335,6 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">L2 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="l2_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->l2_degree??''}}" >
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
                                 <label for="t-group">R3 Worker</label>
                                 <select id="r3_worker_id" name="r3_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
@@ -393,12 +369,6 @@
                                 </option>
                                 @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">R3 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="r3_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->r3_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -441,12 +411,6 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">L3 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="l3_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->l3_degree??''}}" >
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
                                 <label for="t-group">SRF Worker</label>
                                 <select id="srf_worker_id" name="srf_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
@@ -481,12 +445,6 @@
                                 </option>
                                 @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">SRF Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="srf_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->srf_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -529,12 +487,6 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                             <div class="form-group">
-                                <label for="t-group">SRF 2 Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="srf2_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->srf2_degree??''}}" >
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
                                 <label for="t-group">SRF Big Worker</label>
                                 <select id="srfbig_worker_id" name="srfbig_worker_id" placeholder="Select a worker..." autocomplete="off">
                                 <option value="">Select a worker...</option>
@@ -569,12 +521,6 @@
                                 </option>
                                 @endforeach
                                 </select>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                            <div class="form-group">
-                                <label for="t-group">SRF Big Darkness (Optional)</label>
-                                <input id="t-text" type="number" min="0" name="srfbig_degree" placeholder="darkness degree..." class="form-control" value="{{$sale->srfbig_degree??''}}" >
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -636,5 +582,6 @@
     new TomSelect("#srfbig_worker_id");
     new TomSelect("#srfbig_product_id");
     new TomSelect("#srfbig_remove_worker_id");
+    new TomSelect("#coating_worker_id");
 </script>
 @endsection
