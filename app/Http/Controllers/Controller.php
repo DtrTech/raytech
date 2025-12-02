@@ -17,32 +17,35 @@ class Controller extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
     public function calculateCommission(Sale $sale){
-        
-        $tintRemoveSetting = RemoveTintSetting::find(1);
-        $user_ids = User::where('role_id',2)->where('is_active',1)->pluck('id')->toArray();
-        $worker = [];
-        foreach ($user_ids as $user) {
-            $worker[$user] = [
-                'total' => 0,
-                'total_remove_commission' => 0,
-                'total_coating_commission' => 0,
-                'full_total' => 0
-            ];
-        }
     
+        $tintRemoveSetting = RemoveTintSetting::find(1);
+        $worker = [];
+        
         $all_total = 0;
         $all_total_remove_commission = 0;
         $all_total_coating_commission = 0;
-    
+
+        // Collect all product IDs first
         $roles = ['fws', 'rws', 'r1', 'r2', 'l1', 'l2', 'r3', 'l3', 'srf','srf2','srfbig'];
+        $product_ids = [];
+        
+        foreach ($roles as $role) {
+            $product_id = $sale->{$role . '_product_id'};
+            if ($product_id > 0) {
+                $product_ids[] = $product_id;
+            }
+        }
+        
+        // Fetch all products in ONE query
+        $products = Product::withTrashed()->whereIn('id', array_unique($product_ids))->get()->keyBy('id');
         
         foreach ($roles as $role) {
             $worker_id = $sale->{$role . '_worker_id'};
             $product_id = $sale->{$role . '_product_id'};
             $remove_worker_id = $sale->{$role . '_remove_worker_id'};
-    
+
             if ($worker_id > 0) {
-                // Initialize worker if not exists (for deleted/inactive users)
+                // Initialize worker only when needed
                 if (!isset($worker[$worker_id])) {
                     $worker[$worker_id] = [
                         'total' => 0,
@@ -52,17 +55,16 @@ class Controller extends BaseController
                     ];
                 }
                 
-                // Handle case where product might be soft-deleted
-                $product = Product::withTrashed()->find($product_id);
+                // Get product from pre-loaded collection
+                $product = $products->get($product_id);
                 $commission = $product ? ($product->{$role} ?? 0) : 0;
-    
+
                 $all_total += $commission;
                 $worker[$worker_id]['total'] += $commission;
                 $worker[$worker_id]['full_total'] += $commission;
             }
-    
+
             if ($remove_worker_id > 0) {
-                // Initialize worker if not exists (for deleted/inactive users)
                 if (!isset($worker[$remove_worker_id])) {
                     $worker[$remove_worker_id] = [
                         'total' => 0,
@@ -78,12 +80,11 @@ class Controller extends BaseController
                 $worker[$remove_worker_id]['full_total'] += $remove_commission;
             }
         }
-    
+
         // Handle coating worker commission
         if (!empty($sale->coating_worker_id) && $sale->coating_worker_id > 0) {
             $coating_worker_id = $sale->coating_worker_id;
             
-            // Initialize worker if not exists
             if (!isset($worker[$coating_worker_id])) {
                 $worker[$coating_worker_id] = [
                     'total' => 0,
@@ -98,7 +99,7 @@ class Controller extends BaseController
             $worker[$coating_worker_id]['total_coating_commission'] += $coating_commission;
             $worker[$coating_worker_id]['full_total'] += $coating_commission;
         }
-    
+
         return [
             'worker' => $worker,
             'all_total' => $all_total,
