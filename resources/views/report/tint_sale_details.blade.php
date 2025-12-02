@@ -85,9 +85,9 @@
                                 <th>SRF</th>
                                 <th>SRF 2 </th>
                                 <th>SRF Big</th>
+                                <th>Coating</th>
                                 <th>TC</th>
                                 <th>TRC</th>
-                                <!-- <th>Created At</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -109,9 +109,9 @@
                                 <td>{{$row->srf_worker->username??''}}<span style="font-size:0.7rem">{{$row->srf_remove_worker->username??''}}</span></td>
                                 <td>{{$row->srf2_worker->username??''}}<span style="font-size:0.7rem">{{$row->srf2_remove_worker->username??''}}</span></td>
                                 <td>{{$row->srfbig_worker->username??''}}<span style="font-size:0.7rem">{{$row->srfbig_remove_worker->username??''}}</span></td>
+                                <td>{{$row->coating_worker->username??''}}<</td>
                                 <td>{{$row->total??''}}</td>
                                 <td>{{$row->total_remove_commission??''}}</td>
-                                <!-- <td>{{$row->created_at??''}}</td> -->
                             </tr>
                             @endforeach
                         </tbody>

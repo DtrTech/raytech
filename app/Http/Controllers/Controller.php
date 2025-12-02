@@ -25,12 +25,14 @@ class Controller extends BaseController
             $worker[$user] = [
                 'total' => 0,
                 'total_remove_commission' => 0,
+                'total_coating_commission' => 0,
                 'full_total' => 0
             ];
         }
     
         $all_total = 0;
         $all_total_remove_commission = 0;
+        $all_total_coating_commission = 0;
     
         $roles = ['fws', 'rws', 'r1', 'r2', 'l1', 'l2', 'r3', 'l3', 'srf','srf2','srfbig'];
         
@@ -45,6 +47,7 @@ class Controller extends BaseController
                     $worker[$worker_id] = [
                         'total' => 0,
                         'total_remove_commission' => 0,
+                        'total_coating_commission' => 0,
                         'full_total' => 0
                     ];
                 }
@@ -64,6 +67,7 @@ class Controller extends BaseController
                     $worker[$remove_worker_id] = [
                         'total' => 0,
                         'total_remove_commission' => 0,
+                        'total_coating_commission' => 0,
                         'full_total' => 0
                     ];
                 }
@@ -75,10 +79,31 @@ class Controller extends BaseController
             }
         }
     
+        // Handle coating worker commission
+        if (!empty($sale->coating_worker_id) && $sale->coating_worker_id > 0) {
+            $coating_worker_id = $sale->coating_worker_id;
+            
+            // Initialize worker if not exists
+            if (!isset($worker[$coating_worker_id])) {
+                $worker[$coating_worker_id] = [
+                    'total' => 0,
+                    'total_remove_commission' => 0,
+                    'total_coating_commission' => 0,
+                    'full_total' => 0
+                ];
+            }
+            
+            $coating_commission = 0.5;
+            $all_total_coating_commission += $coating_commission;
+            $worker[$coating_worker_id]['total_coating_commission'] += $coating_commission;
+            $worker[$coating_worker_id]['full_total'] += $coating_commission;
+        }
+    
         return [
             'worker' => $worker,
             'all_total' => $all_total,
             'all_total_remove_commission' => $all_total_remove_commission,
+            'all_total_coating_commission' => $all_total_coating_commission,
         ];
     }
 

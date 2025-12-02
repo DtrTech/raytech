@@ -184,7 +184,7 @@ class Sale extends Model
         return $this->belongsTo('App\Models\User','srfbig_remove_worker_id');
     }
 
-    public function coating_worker_id()
+    public function coating_worker()
     {
         return $this->belongsTo('App\Models\User','coating_worker_id');
     }
