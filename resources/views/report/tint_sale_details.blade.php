@@ -109,7 +109,7 @@
                                 <td>{{$row->srf_worker->username??''}}<span style="font-size:0.7rem">{{$row->srf_remove_worker->username??''}}</span></td>
                                 <td>{{$row->srf2_worker->username??''}}<span style="font-size:0.7rem">{{$row->srf2_remove_worker->username??''}}</span></td>
                                 <td>{{$row->srfbig_worker->username??''}}<span style="font-size:0.7rem">{{$row->srfbig_remove_worker->username??''}}</span></td>
-                                <td>{{$row->coating_worker->username??''}}<</td>
+                                <td>{{$row->coating_worker->username??''}}</td>
                                 <td>{{$row->total??''}}</td>
                                 <td>{{$row->total_remove_commission??''}}</td>
                             </tr>
